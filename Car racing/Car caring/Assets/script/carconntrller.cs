@@ -7,7 +7,7 @@ public class carconntrller : MonoBehaviour
     
     
         private const string HORIZONTAL = "Horizontal";
-        private const string VERTICAL = "Vertical";
+    private const string VERTICAL = "Vertical";
 
         private float horizontalInput;
         private float verticalInput;
