@@ -7,14 +7,14 @@ public class carconntrller : MonoBehaviour
     
     
         private const string HORIZONTAL = "Horizontal";
-    private const string VERTICAL = "Vertical";
+        private const string VERTICAL = "Vertical";
 
         private float horizontalInput;
         private float verticalInput;
         private float currentSteerAngle;
         private float BreakForce;
         private bool IsBreaking;
-
+        
         [SerializeField] private float motorForce;
         [SerializeField] private float currentBreakForce;
         [SerializeField] private float MaxSteerAngle;
@@ -67,6 +67,7 @@ public class carconntrller : MonoBehaviour
             currentSteerAngle = MaxSteerAngle = horizontalInput;
             FrontLeftWheeleCollider.steerAngle = currentSteerAngle;
             FrontRightWheeleCollider.steerAngle = currentSteerAngle;
+
         }
 
         private void UpdateWheels()
