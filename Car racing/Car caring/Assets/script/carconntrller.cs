@@ -49,13 +49,14 @@ public class carconntrller : MonoBehaviour
             FrontRightWheeleCollider.motorTorque = verticalInput * motorForce;
             currentBreakForce = IsBreaking ? BreakForce : 0f;
             if (IsBreaking)
-            {
+            {   
                 applyBreaking();
             }
+
         }
 
         private void applyBreaking()
-        {
+        {   if(Input.GetKeyDown(KeyCode.Space))
             FrontRightWheeleCollider.brakeTorque = currentBreakForce;
             FrontLeftWheeleCollider.brakeTorque = currentBreakForce;
             rearRightWheeleCollider.brakeTorque = currentBreakForce;
@@ -64,7 +65,7 @@ public class carconntrller : MonoBehaviour
 
         private void HandleSteering()
         {
-            currentSteerAngle = MaxSteerAngle = horizontalInput;
+            currentSteerAngle = MaxSteerAngle * horizontalInput;
             FrontLeftWheeleCollider.steerAngle = currentSteerAngle;
             FrontRightWheeleCollider.steerAngle = currentSteerAngle;
 
