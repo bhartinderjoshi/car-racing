@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class speedometer : MonoBehaviour
 {
     public Rigidbody target;
@@ -12,8 +13,8 @@ public class speedometer : MonoBehaviour
     public float maxSpeedArrowAngle;
 
     [Header("UI")]
-    public Text speedLabel; // The label that displays the speed;
-    public RectTransform arrow; // The arrow in the speedometer
+    public TextMeshProUGUI speedLabel; // The label that displays the speed;
+    public TextMeshProUGUI speedLabell;
 
     private float speed = 0.0f;
     private void Update()
@@ -24,8 +25,29 @@ public class speedometer : MonoBehaviour
 
         if (speedLabel != null)
             speedLabel.text = ((int)speed) + " km/h";
-        if (arrow != null)
-            arrow.localEulerAngles =
-                new Vector3(0, 0, Mathf.Lerp(minSpeedArrowAngle, maxSpeedArrowAngle, speed / maxSpeed));
+        if (speed > 0)
+        {
+            speedLabell.text = "N";
+        }
+        if (speed > 1)
+        {
+            speedLabell.text = "1";
+        }
+        if (speed > 20)
+        {
+            speedLabell.text = "2";
+        }
+        if (speed > 25)
+        {
+            speedLabell.text = "3";
+        }
+        if (speed > 40)
+        {
+            speedLabell.text = "4";
+        }
+        if (speed > 60)
+        {
+            speedLabell.text = "5";
+        }
     }
 }
